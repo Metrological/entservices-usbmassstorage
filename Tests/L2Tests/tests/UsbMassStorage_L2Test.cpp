@@ -410,18 +410,6 @@ void USBMassStorageTest::Mock_SetSerialNumberInUSBDevicePath()
     ASSERT_TRUE(serialNumOutFile2.is_open()) << "Failed to open file for writing: " << serialNumFileName2;
     serialNumOutFile2 << "UEUIRCXT" << std::endl;
     serialNumOutFile2.close();
-
-    std::string serialNumFileSda = "/dev/sda";
-    std::ofstream serialNumOutFileSda(serialNumFileSda);
-    ASSERT_TRUE(serialNumOutFileSda.is_open()) << "Failed to open file for writing: " << serialNumFileSda;
-    serialNumOutFileSda << "B32FD507 100-123" << std::endl;
-    serialNumOutFileSda.close();
-
-    std::string serialNumFileSdb = "/dev/sdb";
-    std::ofstream serialNumOutFileSdb(serialNumFileSdb);
-    ASSERT_TRUE(serialNumOutFileSdb.is_open()) << "Failed to open file for writing: " << serialNumFileSdb;
-    serialNumOutFileSdb << "UEUIRCXT 101-124" << std::endl;
-    serialNumOutFileSdb.close();
 }
 
 uint32_t USBMassStorageTest::CreateUSBMassStorageInterfaceObjectUsingComRPCConnection()
